@@ -13,7 +13,7 @@
 
 ### **Approach**
 
-1. **Data Processing** – Clean raw pressure → altitude using barometric formula ***(h = (RT/Mg) x ln(P0/P)*** → velocity using ***numpy.diff()***, smooth with ***savgol_filter***, save CSV  
+1. **Data Processing** – Clean raw pressure → altitude using barometric formula ***(h = (RT/Mg) x ln(P0/P))*** → velocity using ***numpy.diff()***, smooth with ***savgol_filter***, save CSV  
 2. **Visualization** – Animated graphs using **`matplotlib`** (***pyplot, FuncAnimation***); toggle between altitude/velocity using ***RadioButtons***
 
 ### **Requirements**
@@ -25,7 +25,7 @@
          matplotlib   
       (pip install (package name))
       
-** First run DataCorrection.py & then run graphs.py**      
+#### First run DataCorrection.py & then run graphs.py     
 
 ---
 
