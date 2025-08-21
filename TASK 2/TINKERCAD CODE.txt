@@ -37,10 +37,14 @@ void setup() {
 }
 
 void loop() {
-  int rawForce = analogRead(forceSensorPin);
-  averageForce = movingAverageFilter(rawForce);
-  float pressure = (10*averageForce)/(914*0.01);                // Force is spread over 0.01 m^2 area
-  Serial.println("Pressure : " + String(pressure) + " Pa");     //ADC is taking max force(10 N) at 914 units instead of 1023 due to external resistor
+  int rawForce = analogRead(forceSensorPin);    // in units
+  averageForce = movingAverageFilter(rawForce); //in units
+  float pressure = (10*averageForce)/(914*0.01);  // Pa   
+
+  // Force is spread over 0.01 m^2 area
+  //ADC is taking max force(10 N) at 914 units instead of 1023 due to external resistor
+
+  Serial.println("Pressure : " + String(pressure) + " Pa");  // Prints pressure on Serial Monitor   
   
   determineState(averageForce);
   updateOutputs();
