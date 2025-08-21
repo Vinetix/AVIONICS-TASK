@@ -6,13 +6,11 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
 from matplotlib.widgets import RadioButtons
-from pathlib import Path
 
 """1. Load and process the data"""
 
 #Load CSV file
-BASE_DIR = Path(r"D:\Vineet_Singhal_2025A7PS0089H_JANUS\TASK 1\correct&smooth_data.csv").resolve().parent
-input_path = BASE_DIR / "correct&smooth_data.csv"
+input_path = "correct&smooth_data.csv"
 
 # Reads the raw test flight dataset into a DataFrame
 df = pd.read_csv(input_path)
