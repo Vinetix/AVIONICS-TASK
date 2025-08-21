@@ -16,6 +16,14 @@
 1. **Data Processing** – Clean raw pressure → altitude using barometric formula ***(h = (RT/Mg) x ln(P0/P)*** → velocity using ***numpy.diff()***, smooth with ***savgol_filter***, save CSV  
 2. **Visualization** – Animated graphs using **`matplotlib`** (***pyplot, FuncAnimation***); toggle between altitude/velocity using ***RadioButtons***
 
+### **Requirements**
+      Python 3.9+
+      Packages:-
+         numpy
+         pandas
+         scipy
+         matplotlib   
+      (pip install (package name)
 ---
 
 # Task 2 – Surprising Galactus
