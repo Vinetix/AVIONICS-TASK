@@ -101,7 +101,7 @@ void updateOutputs() {
     digitalWrite(apogeeLedPin, HIGH);
     // Only buzz if we haven't already at this apogee
     if (!hasBuzzed) {
-      tone(buzzerPin, 500, 1000);
+      tone(buzzerPin, 1000, 1000);
       hasBuzzed = true; // Mark that we've buzzed
     }
   } 
