@@ -1,0 +1,108 @@
+// VINEET SINGHAL 2025A7PS0089H
+// TASK 2 CODE
+
+
+// Define pin numbers
+const int forceSensorPin = A0;
+const int ascendingLedPin = 13;    // Red LED
+const int apogeeLedPin = 12;       // Yellow LED
+const int descendingLedPin = 8;   // Green LED
+const int buzzerPin = 7;
+
+// Variables for noise filtering
+const int numReadings = 5;        // window size for average
+int readings[numReadings];        // Array to store samples
+int readIndex = 0;                // Current reading index
+int total = 0;                    //  Maintains the sum of all values in the window
+int averageForce = 0;             // Average force
+
+// Variables for state detection
+int previousForce = 0;
+bool isAscending = false;
+bool isDescending = false;
+bool isApogee = false;
+bool hasBuzzed = false;          // flag to track if buzzed
+
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(ascendingLedPin, OUTPUT);
+  pinMode(apogeeLedPin, OUTPUT);
+  pinMode(descendingLedPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  
+  for (int i = 0; i < numReadings; i++) {	
+    readings[i] = 0; // creates an empty array
+  }
+}
+
+void loop() {
+  int rawForce = analogRead(forceSensorPin);
+  averageForce = movingAverageFilter(rawForce);
+  float pressure = (10*averageForce)/(914*0.01);                // Force is spread over 0.01 m^2 area
+  Serial.println("Pressure : " + String(pressure) + " Pa");     //ADC is taking max force(10 N) at 914 units instead of 1023 due to external resistor
+  
+  determineState(averageForce);
+  updateOutputs();
+  
+  previousForce = averageForce;
+  delay(100);
+}
+
+int movingAverageFilter(int newReading) {
+  total = total - readings[readIndex];  // Subtract the oldest value from total
+  readings[readIndex] = newReading;    // replace oldest value with current reading
+  total = total + readings[readIndex]; // adds the new value to total
+  readIndex = (readIndex + 1) % numReadings; // moves the index (wraps back to 0 after reaching last index(numreadings-1)
+  return total / numReadings; // returns average
+}
+
+void determineState(int currentForce) {
+  int threshold = 3; // in units(analog input) not in newton
+  
+  // Check if force is increasing (ascending)
+  if (currentForce > previousForce + threshold) {
+    isAscending = true;
+    isDescending = false;
+    isApogee = false;
+    hasBuzzed = false;  // Reset buzzer flag when ascending again
+  } 
+  // Check if force is decreasing (descending)
+  else if (currentForce < previousForce - threshold) {
+    isAscending = false;
+    isDescending = true;
+    isApogee = false;
+  } 
+  // Check for apogee condition (previously ascending & force stabilizes)
+  else { 
+    // Only set apogee if we were previously ascending
+    if (isAscending && !isDescending) {
+      isAscending = false;
+      isApogee = true;
+      isDescending = false;
+    }
+  }
+}
+
+void updateOutputs() {
+  // Turn off all LEDs first
+  digitalWrite(ascendingLedPin, LOW);
+  digitalWrite(apogeeLedPin, LOW);
+  digitalWrite(descendingLedPin, LOW);
+  
+  if (isAscending) {
+    digitalWrite(ascendingLedPin, HIGH);
+  } 
+  else if (isApogee) {
+    digitalWrite(apogeeLedPin, HIGH);
+    // Only buzz if we haven't already at this apogee
+    if (!hasBuzzed) {
+      tone(buzzerPin, 500, 1000);
+      hasBuzzed = true; // Mark that we've buzzed
+    }
+  } 
+  else if (isDescending) {
+    digitalWrite(descendingLedPin, HIGH);
+    noTone(buzzerPin); // Ensure buzzer is off when descending
+  }
+}
