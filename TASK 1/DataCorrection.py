@@ -1,4 +1,4 @@
-# VINEET SINGHAL 2025A7PS0089H
+# VINEET SINGHAL 2025A7PS0089H AVIONICS
 
 # Import required libraries
 import pandas as pd
