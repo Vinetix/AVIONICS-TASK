@@ -24,6 +24,9 @@
          scipy
          matplotlib   
       (pip install (package name))
+      
+** First run DataCorrection.py & then run graphs.py**      
+
 ---
 
 # Task 2 – Surprising Galactus
