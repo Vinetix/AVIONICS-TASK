@@ -35,7 +35,7 @@ point, = ax.plot(0,0,'ro') #red point marker
 plt.subplots_adjust(right=0.8,bottom=0.13)
 
 """3. Add radio button for mode toggle"""
-ax_radio = plt.axes([0.825, 0.6, 0.16, 0.18])
+ax_radio = plt.axes([0.825, 0.6, 0.14, 0.18])
 ## Toggle options : Velocity & Altitude
 radio = RadioButtons(ax_radio,("Altitude","Velocity"),label_props=
                      {'fontsize':[15,15]},radio_props={'s':[60,60],'facecolor':'m'})
@@ -67,11 +67,12 @@ def autoscale(the_label):
     if the_label == "Altitude":
         ax.set_ylim(min(smooth_altitude)-30,max(smooth_altitude)+100)
         ax.set_yticks(np.arange(0,500,50))
+        ax.set_ylabel(f"{the_label}(in m)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
     else:    
         ax.set_ylim(min(smooth_velocity)-10,max(smooth_velocity)+30)
         ax.set_yticks(np.arange(-40,85,10))
+        ax.set_ylabel(f"{the_label}(in m/s)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
     ax.set_xlabel("Time(in seconds)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
-    ax.set_ylabel(f"{the_label}(in m)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
     ax.set_title(f"{the_label} vs Time",fontdict={'fontweight':100,'fontsize' : 20,'color':'#DE2B1F'})
     line.set_label(f"{the_label}")
     if the_label == "Velocity":
