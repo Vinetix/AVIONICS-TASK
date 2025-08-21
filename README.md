@@ -18,12 +18,12 @@
 
 ### **Requirements**
       Python 3.9+
-      Packages:-
+      ***Packages*** :-
          numpy
          pandas
          scipy
          matplotlib   
-      (pip install (package name)
+      (pip install (package name))
 ---
 
 # Task 2 – Surprising Galactus
