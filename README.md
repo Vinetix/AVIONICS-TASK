@@ -42,6 +42,7 @@
 - Moving Average filter (5 samples) to reduce noise  
 - State detection: Ascending / Apogee / Descending *(using a threshold of 3 units) (10 N = 914 units)*
 - Buzzer at apogee (once at a moment), LEDs indicate state, only 1 LED active at a time
+- Prints pressure calculated from the force reading on Serial Monitor in Tinkercad
 
 > Screenshots of circuit & code are attached
 
