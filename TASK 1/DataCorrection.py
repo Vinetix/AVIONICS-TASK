@@ -6,12 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter 
 import math
-from pathlib import Path
 
 """ 1. Load the raw CSV flight data"""
-
-BASE_DIR = Path(r"D:\Vineet_Singhal_2025A7PS0089H_JANUS\TASK 1\Raw_Test_Flight_Data_25 - Sheet1.csv").resolve().parent
-input_path = BASE_DIR / "Raw_Test_Flight_Data_25 - Sheet1.csv"
+input_path = "Raw_Test_Flight_Data_25 - Sheet1.csv"
 
 # Reads the raw test flight dataset into a DataFrame
 raw_df = pd.read_csv(input_path)
@@ -76,4 +73,4 @@ raw_df['Altitude(m)']  = smooth_altitude
 """ 9. Save corrected data to new CSV"""
 
 # Creates a clean + smoothed dataset for further analysis/plotting
-raw_df.to_csv(r'D:\Vineet_Singhal_2025A7PS0089H_JANUS\TASK 1\correct&smooth_data.csv', index=False)
+raw_df.to_csv("correct&smooth_data.csv", index=False)
