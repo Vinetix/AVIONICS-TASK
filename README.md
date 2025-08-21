@@ -48,4 +48,4 @@
 
 ---
 
-📌 **Submitted by: Vineet Singhal (ID: 2025A7PS0089H)**
+📌 **Submitted by: Vineet Singhal (ID: 2025A7PS0089H) AVIONICS**
