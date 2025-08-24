@@ -41,24 +41,31 @@
 Install with:  
 ```bash
 pip install numpy pandas scipy matplotlib
-
 ▶️ Run Order:
+
 DataCorrection.py
 graphs.py
 
 <h1 align="center">⚡ Task 2 – Surprising <span style="color:#e74c3c;">Galactus</span></h1>
 🔌 Circuit (Tinkercad)
 ⚡ Force Sensor (FSR) → Detects force/pressure
+
 🔴🟡🟢 3 LEDs → Red = Ascending | Yellow = Apogee | Green = Descending
+
 🔔 Buzzer → Sounds briefly at Apogee
 (when person is ascending & force stabilizes)
 
 🧠 Logic
 📉 Moving Average filter (5 samples) → reduces noise
+
 🛰️ State detection: Ascending / Apogee / Descending
+
 Uses threshold = 3 units (10 N = 914 units)
+
 🔔 Buzzer → triggers once at Apogee
+
 💡 Only one LED active at a time
+
 🖥️ Serial Monitor → prints pressure from force readings
 
 📷 Screenshots of circuit & code are attached
