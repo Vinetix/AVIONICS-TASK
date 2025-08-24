@@ -39,7 +39,6 @@
 ![Matplotlib](https://img.shields.io/badge/matplotlib-blueviolet?logo=plotly)  
 
 Install with:  
-```bash
 pip install numpy pandas scipy matplotlib
 ▶️ Run Order:
 
