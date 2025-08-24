@@ -38,12 +38,12 @@
 ![SciPy](https://img.shields.io/badge/scipy-orange?logo=scipy)  
 ![Matplotlib](https://img.shields.io/badge/matplotlib-blueviolet?logo=plotly)  
 
-Install with:  
+```Install with:  
 pip install numpy pandas scipy matplotlib
-▶️ Run Order:
 
+▶️ Run Order:
 DataCorrection.py
-graphs.py
+graphs.py```
 
 <h1 align="center">⚡ Task 2 – Surprising <span style="color:#e74c3c;">Galactus</span></h1>
 
