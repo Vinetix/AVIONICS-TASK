@@ -42,8 +42,7 @@ radio = RadioButtons(ax_radio,("Altitude","Velocity"),label_props=
 
 """4. Initial plot setup"""
 ax.set_xlim(0,max(time)+1)
-ax.set_ylim(min(smooth_altitude)-30,max(smooth_altitude)+100)
-ax.set_yticks(np.arange(0,500,50))
+ax.set_ylim(min(smooth_altitude)-30,max(smooth_altitude)+70)
 ax.set_xlabel("Time(in seconds)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
 ax.set_ylabel("Altitude(in m)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
 ax.set_title("Altitude vs Time",fontdict={'fontweight':100,'fontsize' : 20,'color':'#DE2B1F'})
@@ -65,12 +64,10 @@ def autoscale(the_label):
     line.set_data([], [])
     point.set_data([], [])
     if the_label == "Altitude":
-        ax.set_ylim(min(smooth_altitude)-30,max(smooth_altitude)+100)
-        ax.set_yticks(np.arange(0,500,50))
+        ax.set_ylim(min(smooth_altitude)-30,max(smooth_altitude)+70)
         ax.set_ylabel(f"{the_label}(in m)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
     else:    
-        ax.set_ylim(min(smooth_velocity)-10,max(smooth_velocity)+30)
-        ax.set_yticks(np.arange(-40,85,10))
+        ax.set_ylim(min(smooth_velocity)-30,max(smooth_velocity)+70)
         ax.set_ylabel(f"{the_label}(in m/s)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
     ax.set_xlabel("Time(in seconds)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
     ax.set_title(f"{the_label} vs Time",fontdict={'fontweight':100,'fontsize' : 20,'color':'#DE2B1F'})
