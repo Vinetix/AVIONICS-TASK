@@ -43,9 +43,9 @@ pip install numpy pandas scipy matplotlib
 
 ▶️ Run Order:
 DataCorrection.py
-graphs.py```
+graphs.py
 
-<h1 align="center">⚡ Task 2 – Surprising <span style="color:#e74c3c;">Galactus</span></h1>
+<h1 align="center">⚡ Task 2 – Surprising <span style="color:#e74c3c;">Galactus</span></h1>```
 
 ---
 
