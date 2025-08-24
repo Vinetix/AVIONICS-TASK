@@ -47,29 +47,33 @@ DataCorrection.py
 graphs.py
 
 <h1 align="center">⚡ Task 2 – Surprising <span style="color:#e74c3c;">Galactus</span></h1>
-🔌 Circuit (Tinkercad)
-⚡ Force Sensor (FSR) → Detects force/pressure
 
-🔴🟡🟢 3 LEDs → Red = Ascending | Yellow = Apogee | Green = Descending
+---
 
-🔔 Buzzer → Sounds briefly at Apogee
-(when person is ascending & force stabilizes)
+## 📂 Circuit (Tinkercad)
+- ⚡ **Force Sensor (FSR)** → Detects force/pressure  
+- 🔴🟡🟢 **3 LEDs** → Red (Ascending), Yellow (Apogee), Green (Descending)  
+- 🔔 **Buzzer** → Sounds briefly at **Apogee**  
+   *(person should be ascending & force must stabilize — no significant change)*  
 
-🧠 Logic
-📉 Moving Average filter (5 samples) → reduces noise
+---
 
-🛰️ State detection: Ascending / Apogee / Descending
+## ✨ Logic
+- 📉 **Moving Average filter (5 samples)** → reduces noise  
+- 🛰️ **State detection**: Ascending / Apogee / Descending  
+   *(using a threshold of 3 units, where 10 N = 914 units)*  
+- 🔔 **Buzzer at Apogee** → triggers once at the moment  
+- 💡 **LEDs indicate state** → only one LED active at a time  
+- 🖥️ **Serial Monitor** → prints pressure calculated from force reading in Tinkercad  
 
-Uses threshold = 3 units (10 N = 914 units)
+---
 
-🔔 Buzzer → triggers once at Apogee
+📷 *Screenshots of circuit & code are attached*  
 
-💡 Only one LED active at a time
+---
 
-🖥️ Serial Monitor → prints pressure from force readings
+## ✍️ Submission
+📌 **Submitted by:** *Vineet Singhal*  
+🆔 **ID:** `2025A7PS0089H`  
+📡 **Avionics**
 
-📷 Screenshots of circuit & code are attached
-
-📌 Submitted by: Vineet Singhal
-🆔 ID: 2025A7PS0089H
-📡 Avionics
