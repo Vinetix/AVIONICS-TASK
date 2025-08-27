@@ -52,7 +52,7 @@ graphs.py
 ---
 
 ## 📂 Circuit (Tinkercad)
-- ⚡ **Force Sensor (FSR)** → Detects force/pressure  
+- ⚡ **Force Sensor (FSR)** → Detects force/pressure  (pressure = force/0.01)
 - 🔴🟡🟢 **3 LEDs** → Red (Ascending), Yellow (Apogee), Green (Descending)  
 - 🔔 **Buzzer** → Sounds briefly at **Apogee**  
    *(person should be ascending & force must stabilize — no significant change)*  
