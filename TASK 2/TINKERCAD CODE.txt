@@ -50,7 +50,7 @@ void loop() {
   updateOutputs();
   
   previousForce = averageForce;
-  delay(100);
+  delay(50);
 }
 
 int movingAverageFilter(int newReading) {
@@ -66,16 +66,16 @@ void determineState(int currentForce) {
   
   // Check if force is increasing (ascending)
   if (currentForce > previousForce + threshold) {
+    isAscending = false;
+    isDescending = true;
+    isApogee = false;
+  } 
+  // Check if force is decreasing (descending)
+  else if (currentForce < previousForce - threshold) {
     isAscending = true;
     isDescending = false;
     isApogee = false;
     hasBuzzed = false;  // Reset buzzer flag when ascending again
-  } 
-  // Check if force is decreasing (descending)
-  else if (currentForce < previousForce - threshold) {
-    isAscending = false;
-    isDescending = true;
-    isApogee = false;
   } 
   // Check for apogee condition (previously ascending & force stabilizes)
   else { 
