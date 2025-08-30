@@ -1,7 +1,6 @@
 # VINEET SINGHAL 2025A7PS0089H AVIONICS
 
 # Import necessary libraries
-import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
@@ -20,7 +19,7 @@ smooth_altitude = df['Altitude(m)'].astype(float).to_numpy()
 smooth_velocity = df['Velocity(m/s)'].to_numpy()
 time = df['Time(s)'].to_numpy()
 
-#By default, start in "ALtitude" mode 
+#By default, start in "Altitude" mode 
 current_mode = "Altitude"
 ydata = smooth_altitude
 
@@ -63,24 +62,20 @@ def autoscale(the_label):
     # Clear old data so no ghosting remains
     line.set_data([], [])
     point.set_data([], [])
+    ax.set_title(f"{the_label} vs Time",fontdict={'fontweight':100,'fontsize' : 20,'color':'#DE2B1F'})
+    line.set_label(f"{the_label}")
     if the_label == "Altitude":
         ax.set_ylim(min(smooth_altitude)-30,max(smooth_altitude)+70)
         ax.set_ylabel(f"{the_label}(in m)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
+        style_set('--',1.5,'b') # blue dashed line
     else:    
         ax.set_ylim(min(smooth_velocity)-30,max(smooth_velocity)+70)
         ax.set_ylabel(f"{the_label}(in m/s)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
-    ax.set_xlabel("Time(in seconds)",fontdict={'fontname':'arial','fontweight':5,'fontsize' : 14,'color':'#590808'})
-    ax.set_title(f"{the_label} vs Time",fontdict={'fontweight':100,'fontsize' : 20,'color':'#DE2B1F'})
-    line.set_label(f"{the_label}")
-    if the_label == "Velocity":
         style_set(':',2.5,'g') # green dotted line
-    else:
-        style_set('--',1.5,'b') # blue dashed line
     ax.legend(loc='best',labelcolor="#08400E",frameon=True,shadow=True
            ,edgecolor='black',fancybox=True,facecolor="#FFFFA5",
            prop={'weight':'bold','size':13},handlelength=2.5)
-    ax.grid(True)
-    fig.canvas.draw_idle()
+
 
 """7. Callback for radio button"""
 def on_selected(label):
