@@ -64,13 +64,13 @@ int movingAverageFilter(int newReading) {
 void determineState(int currentForce) {
   int threshold = 3; // in units(analog input) not in newton
   
-  // Check if force is increasing (ascending)
+  // Check if force is increasing (descending)
   if (currentForce > previousForce + threshold) {
     isAscending = false;
     isDescending = true;
     isApogee = false;
   } 
-  // Check if force is decreasing (descending)
+  // Check if force is decreasing (ascending)
   else if (currentForce < previousForce - threshold) {
     isAscending = true;
     isDescending = false;
